@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
 
 export default class Page extends Component {
-    onYearBtnClick(e) {
-        this.props.setYear(+e.target.innerText)
-    }
+    static defaultProps = {
+        years: [2104, 2015, 2016]
+    };
 
     render() {
-        const { year, photos } = this.props;
+        const { activeYear, photos, years } = this.props;
+
         return (
             <div>
                 <p>
-                    <button onClick={() => this.props.setYear(2016)}>2016</button>
-                    <button onClick={() => this.props.setYear(2015)}>2015</button>
-                    <button onClick={() => this.props.setYear(2014)}>2014</button>
+                    {years.map(year => (
+                        <button key={year} onClick={() => this.props.setYear(year)}>
+                            {year}
+                        </button>
+                    ))}
                 </p>
-                <h3>{year} год</h3>
+                <h3>{activeYear} год</h3>
                 <p>У тебя {photos.length} фото.</p>
             </div>
         )
