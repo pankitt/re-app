@@ -10,9 +10,9 @@ export default class Page extends Component {
         return (
             <div>
                 <p>
-                    <button onClick={this.onYearBtnClick.bind(this)}>2016</button>
-                    <button onClick={this.onYearBtnClick.bind(this)}>2015</button>
-                    <button onClick={this.onYearBtnClick.bind(this)}>2014</button>
+                    <button onClick={() => this.props.setYear(2016)}>2016</button>
+                    <button onClick={() => this.props.setYear(2015)}>2015</button>
+                    <button onClick={() => this.props.setYear(2014)}>2014</button>
                 </p>
                 <h3>{year} год</h3>
                 <p>У тебя {photos.length} фото.</p>
